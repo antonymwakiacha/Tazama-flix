@@ -1,17 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix - Movie</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Movie 
+{% endblock title %}
+
+{% block others %}
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <style>
         .player::-webkit-progress-bar{
             color: red;
         }
     </style>
+
+{% endblock others %}
+
+{% block content %}
+
+{% include 'partials/navbar.html' %}
+<main class='bg-primary_black h-full w-full '>
+        
+    <video src="assets/test.mp4" controls class="w-full h-screen player"></video>
+    
+</main>
+
+{% endblock content %}
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <title>Netflix - Movie</title>
+    <link rel="stylesheet" href="style.css"> -->
+<!--     
 </head>
 <body class='font-primary'>
     <nav class="flex justify-between items-center py-3 bg-gray-900  px-4 w-full z-50">
@@ -27,10 +51,6 @@
         </div>
         
     </nav>
-    <main class='bg-primary_black h-full w-full '>
-        
-        <video src="assets/test.mp4" controls class="w-full h-screen player"></video>
-        
-    </main>
+   
 </body>
-</html>
+</html> -->
