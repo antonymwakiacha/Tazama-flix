@@ -50,3 +50,26 @@ class Watch(View):
             return render(request,'movieList.html', {'movies':movies})
         except Profile.DoesNotExist:
             return redirect(to='core:profile_list')
+
+@method_decorator(login_required,name='dispatch')
+class ShowMovieDetail(View):
+    def get(self,request,movie_id,*args,**kwargs):
+        try:
+            movie=Movie.objects.get(uuid=movie_id)
+
+            return render(request,'movieDetail.html',{'movie':movie})
+
+        except Movie.DoesNotExist:
+            return redirect('core:profile_list')
+
+@method_decorator(login_required,name='dispatch')
+class ShowMovie(View):
+    def get(self,request,movie_id,*args,**kwargs):
+        try:
+            movie=Movie.objects.get(uuid=movie_id)
+            movie=movie.videos.values()
+
+            return render(request,'showMovie.html',{'movie':list(movie)})
+
+        except Movie.DoesNotExist:
+            return redirect('core:profile_list')
